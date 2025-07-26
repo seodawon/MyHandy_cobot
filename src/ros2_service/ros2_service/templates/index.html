@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>ROS2 Control UI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <h1 class="title">My Handy!</h1>
+  <div class="container">
+    <h2>CAM</h2>
+    <div class="camera">
+      <img src="{{ url_for('static', filename='environment.jpeg') }}" alt="Camera View" />
+
+    <div class="description">
+        <h3>기능 설명</h3>
+        <ul>
+          <li><strong>① 재료1:</strong> 1번 구역에 있는 재료를 이용해 쉐이크를 만듭니다.</li>
+          <li><strong>② 재료2:</strong> 2번 구역에 있는 재료를 이용해 쉐이크를 만듭니다.</li>
+          <li><strong>③ 책 꺼내기:</strong> 책장에서 책 꺼내기</li>
+          <li><strong>④ 옷 건네주기:</strong> 옷을 집어서 사람에게 주기</li>
+          <!-- <li><strong>⑤ 정리:</strong> 주위 물건을 바구니에 넣기</li> -->
+        </ul>
+      </div>
+    </div>
+
+    <div class="control-section">
+      <h3>중복 선택</h3>
+      <div class="buttons">
+        <label><input type="checkbox" name="btn" value="1"> ① 재료1</label>
+        <label><input type="checkbox" name="btn" value="2"> ② 재료2</label>
+        <label><input type="checkbox" name="btn" value="3"> ③ 책 꺼내기</label>
+        <label><input type="checkbox" name="btn" value="4"> ④ 옷 건네주기</label>
+        <!-- <label><input type="checkbox" name="btn" value="5"> ⑤ 정리</label> -->
+        <label><button onclick="submitSelection()">확인</button></label>
+      </div>
+    </div>
+
+    <div class="log">
+      <h3>Log Message</h3>
+      <textarea id="logArea" readonly>{{ logs|join('\n') }}</textarea>
+    </div>
+
+  </div>
+
+  <script>
+    function submitSelection() {
+      const checked = Array.from(document.querySelectorAll('input[name="btn"]:checked'))
+                           .map(cb => cb.value);
+      fetch('/submit', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({selected: checked})
+      })
+      .then(res => res.json())
+      .then(data => {
+        const logArea = document.getElementById('logArea');
+        logArea.value = data.logs.join('\n');
+        logArea.scrollTop = logArea.scrollHeight;
+      });
+    }
+  </script>
+</body>
+</html>

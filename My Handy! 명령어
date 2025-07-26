@@ -1,0 +1,8 @@
+ros2 run rokey ros2_server # 로봇팔 명령 내리는 스크립트 명령어
+ros2 run ros2_service ros2_client # 웹 키는 것 + 서비스 클라이언트 명령어
+ros2 launch dsr_bringup2 dsr_bringup2_rviz.launch.py mode:=real host:=192.168.1.100 port:=12345 model:=m0609 # REAL모드
+# 한번 시나리오대로 실행하고 ros2 run rokey ros2_server # 로봇팔 명령 내리는 스크립트 명령어 ros2 run ros2_service ros2_client # 웹 키는 것 + 서비스 클라이언트 명령어 를 다시 켜줘야합니다.
+
+
+ros2_server.py(src/DoosanBootcamInt1/dsr_rokey/rokey/rokey/basic)와 
+ros2_client(src/ros2_service/ros2_service)만 사용합니다!
