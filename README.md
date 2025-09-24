@@ -7,7 +7,7 @@
 <br>
 
 ## 🎥 프로젝트 소개  
-[![MyHandy Demo](https://img.youtube.com/vi/7lKyawi-X6o/0.jpg)](https://youtu.be/7lKyawi-X6o)  
+[![MyHandy Demo](https://img.youtube.com/vi/dJ__a5zE24s/0.jpg)](https://youtu.be/dJ__a5zE24s)
 ➡ 영상 클릭 시, YouTube 재생  
 
 **MyHandy**는 바쁜 현대인을 위해 아침 루틴을 자동화하고, **TTS 대화**를 통해 정서적 지원을 제공하여 우울증과 번아웃 완화를 목표로 하는 가사 보조 로봇 시스템입니다.  
