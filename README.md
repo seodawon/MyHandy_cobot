@@ -1,7 +1,7 @@
 # MyHandy: 가사 도우미 로봇
 
 ### 현대인을 위한 아침 루틴 자동화 및 정서적 지원 로봇 프로젝트
-- 프로젝트 기간: 2025년 진행  
+- 프로젝트 기간: 05.23 ~ 06.05
 - 주요 역할: Web + Manipulator Control, Robot Control & Code Integration (**기여도 60%**)
 
 <br>
